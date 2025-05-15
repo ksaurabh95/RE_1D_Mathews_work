@@ -8,7 +8,7 @@ transition_depth = 1.0
 dz_min = 0.0022
 dz_max = 0.1818
 uniform_dz = dz_max
-total_nodes = 36
+total_nodes = 37
 total_intervals = total_nodes - 1
 
 # Calculate uniform intervals
@@ -53,29 +53,29 @@ node_numbers = np.arange(1, len(node_centers) + 1)
 # node_centers = midpoints
 
 # Create 1 by 2 subplots
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 6), sharey=True)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 6))
 
 # First plot: Depth vs Node Size
 ax1.plot(dz_all, midpoints, marker='o', linestyle='-')
 ax1.invert_yaxis()
 ax1.set_xlabel("Node size (m)")
 ax1.set_ylabel("Depth (m)")
-ax1.set_title("Depth vs Node Size")
+ax1.set_title("a) Depth vs Node Size")
 ax1.grid(True)
 
 # Second plot: Depth vs Centered Node Number
 ax2.plot(node_numbers, node_centers, marker='o', linestyle='-')
 ax2.invert_yaxis()
-ax2.set_xlabel("Node Number (centered in each block)")
-ax2.set_title("Depth vs Centered Node Number")
+ax2.set_xlabel("Node Number")
+ax2.set_title(") Depth vs Centered Node Number")
 ax2.set_xlim(0, 40)
-ax2.set_ylim(0, 3)
+ax2.set_ylim(3, 0)
 ax2.grid(True)
 
 # Layout adjustment
 plt.tight_layout()
 plt.savefig("grid_layout.png",dpi = 200)
-
+plt.savefig("grid_layout.svg",dpi = 200)
 
 # Save variables to a .mat file
 mat_data = {
