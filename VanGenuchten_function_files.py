@@ -137,7 +137,7 @@ def f1(depth,a,Lr,zmax):
     depth = np.array(depth, dtype=float)
     f1 = np.zeros_like(depth)
     mask = depth > Lr
-    f1[~mask] = a/Lr *( np.exp(-a)-np.exp(-a*depth[~mask]/Lr) ) / ( (1+a)*(np.exp(-a) -1) )
+    f1[~mask] = a/Lr *( np.exp(-a)-np.exp(-a*depth[~mask]/Lr) ) / ( (1+a)*np.exp(-a) -1) 
                                                                    
     f1[mask] = 0
     
